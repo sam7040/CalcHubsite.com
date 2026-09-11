@@ -1,0 +1,39 @@
+name: Extract CalcHub
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Find and extract CalcHub ZIP
+        run: |
+          ZIP="$(find . -maxdepth 1 -type f -name '*.zip' | head -n 1)"
+          test -n "$ZIP"
+
+          mkdir .__calchub_extract
+          unzip -q "$ZIP" -d .__calchub_extract
+
+          cp -R .__calchub_extract/. .
+          rm -rf .__calchub_extract
+          rm -f "$ZIP"
+
+      - name: Commit extracted files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+          git commit -m "Extract current CalcHub website" || exit 0
+          git push
