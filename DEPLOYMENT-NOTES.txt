@@ -1,0 +1,19 @@
+CalcHub deployment package — V11 baseline with requested AdSense-readiness improvements.
+
+Preserved:
+- 6 languages only: English, Hindi, Spanish, Portuguese, Russian, Simplified Chinese.
+- 8 calculator routes in the approved order.
+- V11 calculator UI, content, sharing logos and mobile-first design.
+- No search bar.
+- Clean folder URLs.
+
+AdSense-readiness improvements:
+- Expanded About, Contact, Privacy Policy and Terms of Use pages.
+- Privacy Policy now documents browser-based calculator inputs, local storage, future Google AdSense/cookie disclosures, third-party advertising, regional consent requirements and contact handling.
+- Added useful metadata (description, robots and theme-color) to site/legal pages and calculator pages.
+- Root page retains the /age-calculator/ redirect.
+
+Important before AdSense application:
+- After the final custom domain is connected, set production absolute canonical/hreflang URLs and submit a production sitemap in Google Search Console.
+- After AdSense is approved and ads are enabled, configure Google's consent/CMP requirements for EEA, UK and Switzerland traffic and add the real AdSense publisher/ads.txt details supplied by Google.
+- Do not add placeholder publisher IDs or ads.txt entries.
